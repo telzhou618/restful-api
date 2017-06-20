@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.restful.api.core.Rest;
 import com.restful.api.core.anno.ForbidMethod;
-import com.restful.api.core.anno.Log;
 import com.restful.api.core.controller.AppController;
 import com.restful.api.web.model.Blog;
 import com.restful.api.web.service.IBlogService;
@@ -33,16 +32,4 @@ public class BlogController extends AppController<Blog,IBlogService>{
 		return Rest.okData(pageData);
 		
     }
-	
-	/**
-	 * 重写Add方法
-	 */
-	@Log("测试哈哈")
-	@GetMapping("/test")
-	public Rest test() {
-		// TODO Auto-generated method stub
-		return Rest.ok("测试哈哈");
-	}
-	
-	
 }

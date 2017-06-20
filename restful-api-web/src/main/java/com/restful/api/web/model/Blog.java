@@ -3,6 +3,8 @@ package com.restful.api.web.model;
 import java.io.Serializable;
 import java.util.Date;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableName;
@@ -28,10 +30,12 @@ public class Blog implements Serializable {
 	/**
 	 * 标题
 	 */
+	@NotBlank(message="文章标题不能为空")
 	private String title;
 	/**
 	 * 内容
 	 */
+	@NotBlank(message="文章内容不能为空")
 	private String content;
 	/**
 	 * 创建时间

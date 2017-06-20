@@ -11,10 +11,9 @@ Spring MVC、Mybatis、Mybatis-Plus(Mybatis增强插件)、Mysql、Maven、swagg
 快速开始
 -------------
 1. git clone https://github.com/alexdoop/restful-api.git
-2. cd ~/restful-web-api
-3. mvn install
-4. mvn jetty:run
-5. http://localhost:8080/swagger-ui.html
+2. cd ~/restful-api && mvn install
+3. cd restful-api-web && mvn jetty:run
+4. http://localhost:8080/swagger-ui.html
 
 接口生成
 -------------

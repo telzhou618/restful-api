@@ -1,7 +1,7 @@
 package com.restful.api.web.service;
 
 import com.baomidou.mybatisplus.service.IService;
-import com.restful.api.web.model.SysUser;
+import com.restful.api.web.entity.SysUser;
 
 /**
  *

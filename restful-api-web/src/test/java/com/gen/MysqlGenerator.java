@@ -90,7 +90,7 @@ public class MysqlGenerator {
 		// 自定义 service 实现类父类
 		// strategy.setSuperServiceImplClass("com.baomidou.demo.TestServiceImpl");
 		// 自定义 controller 父类
-		//strategy.setSuperControllerClass("com.vacomall.common.controller.AppController");
+		strategy.setSuperControllerClass("com.restful.api.core.CrudController");
 		// 【实体】是否生成字段常量（默认 false）
 		// public static final String ID = "test_id";
 		// strategy.setEntityColumnConstant(true);
@@ -98,11 +98,12 @@ public class MysqlGenerator {
 		// public User setName(String name) {this.name = name; return this;}
 		// strategy.setEntityBuliderModel(true);
 		mpg.setStrategy(strategy);
+		
 
 		// 包配置
 		PackageConfig pc = new PackageConfig();
-		pc.setModuleName("vacomall");
-		pc.setParent("com");// 自定义包路径
+		pc.setModuleName("web");
+		pc.setParent("com.restful.api");// 自定义包路径
 		//pc.setController("controller");// 这里是控制器包名，默认 web
 		//pc.setEntity("entity");
 		mpg.setPackageInfo(pc);
@@ -130,13 +131,13 @@ public class MysqlGenerator {
 		// 自定义模板配置，模板可以参考源码 /mybatis-plus/src/main/resources/template 使用 copy
 		// 至您项目 src/main/resources/template 目录下，模板名称也可自定义如下配置：
 		// TemplateConfig tc = new TemplateConfig();
-		// tc.setController("...");
-		// tc.setEntity("...");
-		// tc.setMapper("...");
-		// tc.setXml("...");
+		// tc.setController("");
+		// tc.setEntity("");
+		 //tc.setMapper("...");
+		 //tc.setXml("...");
 		// tc.setService("...");
 		// tc.setServiceImpl("...");
-		// mpg.setTemplate(tc);
+	//	mpg.setTemplate(tc);
 
 		// 执行生成
 		mpg.execute();

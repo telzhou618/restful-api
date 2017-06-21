@@ -11,7 +11,7 @@ import com.baomidou.mybatisplus.plugins.Page;
 import com.restful.api.core.Rest;
 import com.restful.api.core.anno.ForbidMethod;
 import com.restful.api.core.controller.AppController;
-import com.restful.api.web.model.Blog;
+import com.restful.api.web.entity.Blog;
 import com.restful.api.web.service.IBlogService;
 /**
  * 标准的Rest接口,实例控制器

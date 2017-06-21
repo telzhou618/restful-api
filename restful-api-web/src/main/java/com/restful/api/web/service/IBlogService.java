@@ -4,7 +4,7 @@ import java.util.Map;
 
 import com.baomidou.mybatisplus.plugins.Page;
 import com.baomidou.mybatisplus.service.IService;
-import com.restful.api.web.model.Blog;
+import com.restful.api.web.entity.Blog;
 
 /**
  *

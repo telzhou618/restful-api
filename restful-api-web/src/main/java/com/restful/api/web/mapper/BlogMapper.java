@@ -5,7 +5,7 @@ import java.util.Map;
 
 import com.baomidou.mybatisplus.mapper.BaseMapper;
 import com.baomidou.mybatisplus.plugins.Page;
-import com.restful.api.web.model.Blog;
+import com.restful.api.web.entity.Blog;
 
 /**
  *

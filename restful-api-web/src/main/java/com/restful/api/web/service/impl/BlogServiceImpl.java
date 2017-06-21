@@ -8,8 +8,8 @@ import org.springframework.stereotype.Service;
 
 import com.baomidou.mybatisplus.plugins.Page;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
+import com.restful.api.web.entity.Blog;
 import com.restful.api.web.mapper.BlogMapper;
-import com.restful.api.web.model.Blog;
 import com.restful.api.web.service.IBlogService;
 
 /**

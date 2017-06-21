@@ -1,4 +1,4 @@
-package com.restful.api.web.model;
+package com.restful.api.web.entity;
 
 import java.io.Serializable;
 import java.util.Date;

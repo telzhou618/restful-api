@@ -1,7 +1,7 @@
 package com.restful.api.core.ex;
 
 /**
- * 未查到数据异常
+ * 禁止访问异常
  * Created by Gaojun.Zhou 2017年6月8日
  */
 public class ForbidAccessException extends RuntimeException{

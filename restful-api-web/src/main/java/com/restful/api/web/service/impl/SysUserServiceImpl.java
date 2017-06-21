@@ -5,8 +5,8 @@ import org.springframework.util.DigestUtils;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
+import com.restful.api.web.entity.SysUser;
 import com.restful.api.web.mapper.SysUserMapper;
-import com.restful.api.web.model.SysUser;
 import com.restful.api.web.service.ISysUserService;
 
 /**

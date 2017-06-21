@@ -1,7 +1,7 @@
 package com.restful.api.web.mapper;
 
 import com.baomidou.mybatisplus.mapper.BaseMapper;
-import com.restful.api.web.model.SysUser;
+import com.restful.api.web.entity.SysUser;
 
 /**
  *

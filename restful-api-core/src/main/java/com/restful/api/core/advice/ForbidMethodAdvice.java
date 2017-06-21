@@ -14,9 +14,8 @@ import org.springframework.stereotype.Component;
 import com.restful.api.core.anno.ForbidMethod;
 import com.restful.api.core.ex.ForbidAccessException;
 /**
- * 正常业务日志记录
- * @author Administrator
- *
+ * 禁止指定方法访问
+ * Created by Gaojun.Zhou 2017年6月21日
  */
 @Aspect
 @Component

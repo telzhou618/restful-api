@@ -65,7 +65,7 @@ public class MysqlGenerator {
 		dsc.setDriverName("com.mysql.jdbc.Driver");
 		dsc.setUsername("root");
 		dsc.setPassword("root");
-		dsc.setUrl("jdbc:mysql://localhost:3306/app_blog?characterEncoding=utf8");
+		dsc.setUrl("jdbc:mysql://localhost:3306/restful-api?characterEncoding=utf8");
 		mpg.setDataSource(dsc);
 
 		// 策略配置
@@ -75,7 +75,7 @@ public class MysqlGenerator {
 		//strategy.setTablePrefix(new String[] { "bmd_", "mp_" });// 此处可以修改为您的表前缀
 		strategy.setTablePrefix(new String[] { "tb_"});// 此处可以修改为您的表前缀
 		strategy.setNaming(NamingStrategy.underline_to_camel);// 表名生成策略
-		strategy.setInclude(new String[] { "tb_author" }); // 需要生成的表
+		strategy.setInclude(new String[] { "tb_user","tb_blog" }); // 需要生成的表
 		// strategy.setExclude(new String[]{"test"}); // 排除生成的表
 		// 字段名生成策略
 		//strategy.setFieldNaming(NamingStrategy.nochange);

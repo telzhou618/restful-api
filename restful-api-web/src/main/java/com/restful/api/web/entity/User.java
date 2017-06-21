@@ -19,8 +19,8 @@ import com.baomidou.mybatisplus.enums.IdType;
  * 
  *
  */
-@TableName("sys_user")
-public class SysUser implements Serializable {
+@TableName("tb_user")
+public class User implements Serializable {
 
 	@TableField(exist = false)
 	private static final long serialVersionUID = 1L;

@@ -46,7 +46,7 @@ public class ForbidMethodAdvice {
 		if(forbidMethodAnno!=null){
 			String[] value = forbidMethodAnno.value();
 			if(ArrayUtils.contains(value, name)){
-				throw new ForbidAccessException(ctr.getClass().getSimpleName()+"'"+name + " is Forbid Access.");
+				throw new ForbidAccessException(name+"禁止访问");
 			}
 		}
 		

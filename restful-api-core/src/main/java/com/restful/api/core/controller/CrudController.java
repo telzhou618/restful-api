@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 
 import com.baomidou.mybatisplus.service.IService;
 import com.restful.api.core.Rest;
+import com.restful.api.core.ex.NotFindDataException;
 import com.restful.api.core.util.ValidateUtil;
 
 /**
@@ -46,20 +48,26 @@ public abstract class CrudController<T extends Serializable,S extends IService<T
 		if(!list.isEmpty()){
 			return Rest.okData(list);
 		}
-		return Rest.failure("未查询对象");
+		throw new NotFindDataException("未查询到任何对象");
 		
     }
 	
     @GetMapping("/{id}")  
     public  Rest get(@PathVariable("id") Serializable id){
-		if(id == null){
-			return Rest.failure("参数{id}不能为空");
+		
+    	if(id==null){
+			throw new RuntimeException("参数{id}不能为空");
 		}
+    	if(id instanceof String){
+    		if(StringUtils.isBlank((String)id)){
+    			throw new RuntimeException("参数{id}不能为空");
+    		}
+    	}
 		T t = s.selectById(id);
 		if(t != null){
 			return Rest.okData(t);
 		}
-		return Rest.failure("对象不存在");
+		throw new NotFindDataException(String.format("id为[%s]的对象不存在",id));
     }
     
 	/**
@@ -94,17 +102,22 @@ public abstract class CrudController<T extends Serializable,S extends IService<T
 	 */
 	@DeleteMapping("/{id}")
 	public Rest delete(@PathVariable("id") Serializable id){
-		if(id == null){
-			return Rest.failure("参数{id}不能为空");
-		}
-		T t = s.selectById(id);
 		
+		if(id==null){
+			throw new RuntimeException("参数{id}不能为空");
+		}
+    	if(id instanceof String){
+    		if(StringUtils.isBlank((String)id)){
+    			throw new RuntimeException("参数{id}不能为空");
+    		}
+    	}
+		T t = s.selectById(id);
 		if(t== null){
-			return Rest.failure("要删除的对象不存在");
+			throw new NotFindDataException("要删除的对象不存在");
 		}else if(s.deleteById(id)){
 			return Rest.ok("删除成功");
 		}else{
-			return Rest.failure("删除失败");
+			throw new RuntimeException("糟糕,删除失败");
 		}
 	}
 }

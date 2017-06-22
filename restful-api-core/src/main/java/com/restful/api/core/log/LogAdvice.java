@@ -3,6 +3,8 @@ package com.restful.api.core.log;
 import java.lang.reflect.Method;
 import java.util.Date;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.log4j.Logger;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
@@ -11,8 +13,12 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
+import com.google.gson.Gson;
 import com.restful.api.core.anno.Log;
+import com.restful.api.core.util.IpUtil;
 /**
  * 正常业务日志记录
  * @author Administrator
@@ -44,13 +50,19 @@ public class LogAdvice {
 		Method method = methodSignature.getMethod();
 		Log log =  method.getAnnotation(Log.class);
 		if(log != null){
+			String logTitle = log.title();
 			String logContent = log.value();
-			logger.info(String.format("log : [%s]",logContent));
-			
+			logger.debug("logs:[logTitle:"+logTitle+"][logContent:"+logContent+"]");
 			if(logApi != null){
+				HttpServletRequest request = ((ServletRequestAttributes)RequestContextHolder.getRequestAttributes()).getRequest();  
 				LogBean logBean = new LogBean();
+				logBean.setLogTitle(logTitle);
 				logBean.setLogTime(new Date());
 				logBean.setLogContent(logContent);
+				logBean.setRequestMethod(request.getMethod());
+				logBean.setClientIp(IpUtil.getIpAddr(request));
+				logBean.setRequestParams(new Gson().toJson(request.getParameterMap()));
+				logger.debug("logBean:"+logBean.toString());
 				logApi.log(logBean);
 			}else{
 				logger.warn("LogApi not finish.");

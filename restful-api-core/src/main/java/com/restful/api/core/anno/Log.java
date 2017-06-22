@@ -15,6 +15,14 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 public @interface Log {
-
-	 String value() default "";
+	/**
+	 * 日志标题
+	 * @return
+	 */
+	String title() default "";
+	/**
+	 * 日志内容
+	 * @return
+	 */
+	String value() default "";
 }

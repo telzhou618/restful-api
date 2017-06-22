@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.baomidou.mybatisplus.service.IService;
 import com.restful.api.core.Rest;
+import com.restful.api.core.ex.NotFindDataException;
 
 /**
  * Rest 风格之外的公共扩展接口
@@ -31,8 +32,7 @@ public abstract class AppController<T extends Serializable,S extends IService<T>
 			return Rest.okData(pageData);
 		} 
 		
-		 
-		return Rest.failure("未查询到对象");
+		throw new NotFindDataException("未查询到任何数据");
     }
 	
 }

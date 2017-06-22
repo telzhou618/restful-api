@@ -6,6 +6,10 @@ import java.util.Map;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 
+/**
+ * 验证工具类
+ * Created by Gaojun.Zhou 2017年6月22日
+ */
 public class ValidateUtil {
 
 	public static Map<String, Object> toStringJson(BindingResult result){

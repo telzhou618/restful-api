@@ -29,6 +29,11 @@ public class LogBean {
 	 */
 	private String requestMethod;
 	/**
+	 * 请求参数
+	 */
+	private String requestParams;
+	
+	/**
 	 * 其他数据
 	 */
 	private String other;
@@ -64,6 +69,15 @@ public class LogBean {
 	public void setLogTime(Date logTime) {
 		this.logTime = logTime;
 	}
+	
+	
+	public String getRequestParams() {
+		return requestParams;
+	}
+
+	public void setRequestParams(String requestParams) {
+		this.requestParams = requestParams;
+	}
 
 	public String getRequestMethod() {
 		return requestMethod;
@@ -84,9 +98,7 @@ public class LogBean {
 	@Override
 	public String toString() {
 		return "LogBean [logTitle=" + logTitle + ", logContent=" + logContent + ", clientIp=" + clientIp + ", logTime="
-				+ logTime + ", requestMethod=" + requestMethod + ", other=" + other + "]";
+				+ logTime + ", requestMethod=" + requestMethod + ", requestParams=" + requestParams + ", other=" + other
+				+ "]";
 	}
-	
-	
-	
 }

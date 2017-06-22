@@ -8,7 +8,7 @@ import com.restful.api.core.log.LogApi;
 import com.restful.api.core.log.LogBean;
 
 /**
- * 记录日志业务
+ * 记录日志业务,开发这个实现LogApi接口的log方法可灵活处理日志，如记录在数据库
  * Created by Gaojun.Zhou 2017年6月20日
  */
 @Service
